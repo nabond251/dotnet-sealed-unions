@@ -1,0 +1,1 @@
+# dotnet-sealed-unions
