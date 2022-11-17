@@ -3,6 +3,7 @@ root = true
 # All files
 [*]
 indent_style = space
+guidelines = 80
 
 # Xml files
 [*.xml]
