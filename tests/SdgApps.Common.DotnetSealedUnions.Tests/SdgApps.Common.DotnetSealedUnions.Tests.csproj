@@ -66,4 +66,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\SdgApps.Common.DotnetSealedUnions\SdgApps.Common.DotnetSealedUnions.csproj" />
+  </ItemGroup>
+
 </Project>
