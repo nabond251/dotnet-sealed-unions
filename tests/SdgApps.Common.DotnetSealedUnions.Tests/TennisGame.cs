@@ -7,7 +7,6 @@ namespace SdgApps.Common.DotnetSealedUnions.Tests;
 using System;
 using System.Collections.Generic;
 using SdgApps.Common.DotnetSealedUnions.Generic;
-using static SdgApps.Common.DotnetSealedUnions.Tests.TennisGame;
 
 /// <summary>
 /// Tennis kata tennis game.
@@ -50,7 +49,7 @@ public class TennisGame
         /// </returns>
         static IScore Advantage(IAdvantage advantage)
         {
-            throw new NotImplementedException();
+            return new AdvantageScore(advantage);
         }
 
         /// <summary>
@@ -63,7 +62,7 @@ public class TennisGame
         /// </returns>
         static IScore Deuce()
         {
-            throw new NotImplementedException();
+            return new DeuceScore();
         }
 
         /// <summary>
@@ -77,7 +76,7 @@ public class TennisGame
         /// </returns>
         static IScore Game(IGame game)
         {
-            throw new NotImplementedException();
+            return new GameScore(game);
         }
 
         /// <summary>
@@ -117,6 +116,50 @@ public class TennisGame
             public IUnion4<Points, IAdvantage, Deuce, IGame> Score =>
                 GenericUnions.QuartetFactory<Points, IAdvantage, Deuce, IGame>()
                 .First(new Points(this.playerOnePoints, this.playerTwoPoints));
+        }
+
+        /// <summary>
+        /// <see cref="IScore"/> implementation for advantage.
+        /// </summary>
+        private class AdvantageScore : IScore
+        {
+            private readonly IAdvantage advantage;
+
+            public AdvantageScore(IAdvantage advantage)
+            {
+                this.advantage = advantage;
+            }
+
+            public IUnion4<Points, IAdvantage, Deuce, IGame> Score =>
+                GenericUnions.QuartetFactory<Points, IAdvantage, Deuce, IGame>()
+                .Second(this.advantage);
+        }
+
+        /// <summary>
+        /// <see cref="IScore"/> implementation for deuce.
+        /// </summary>
+        private class DeuceScore : IScore
+        {
+            public IUnion4<Points, IAdvantage, Deuce, IGame> Score =>
+                GenericUnions.QuartetFactory<Points, IAdvantage, Deuce, IGame>()
+                .Third(new Deuce());
+        }
+
+        /// <summary>
+        /// <see cref="IScore"/> implementation for game.
+        /// </summary>
+        private class GameScore : IScore
+        {
+            private readonly IGame game;
+
+            public GameScore(IGame game)
+            {
+                this.game = game;
+            }
+
+            public IUnion4<Points, IAdvantage, Deuce, IGame> Score =>
+                GenericUnions.QuartetFactory<Points, IAdvantage, Deuce, IGame>()
+                .Fourth(this.game);
         }
     }
 
@@ -238,7 +281,7 @@ public class TennisGame
         /// </returns>
         static new IAdvantage One()
         {
-            throw new NotImplementedException();
+            return new OnePlayer();
         }
 
         /// <summary>
@@ -251,7 +294,47 @@ public class TennisGame
         /// </returns>
         static new IAdvantage Two()
         {
-            throw new NotImplementedException();
+            return new TwoPlayer();
+        }
+
+        /// <summary>
+        /// <see cref="IAdvantage"/> implementation for player one.
+        /// </summary>
+        private class OnePlayer : IAdvantage
+        {
+            public IUnion2<PlayerOne, PlayerTwo> Player =>
+                GenericUnions.DoubletFactory<PlayerOne, PlayerTwo>()
+                .First(new PlayerOne());
+
+            public override bool Equals(object? obj)
+            {
+                return obj == this || obj is OnePlayer;
+            }
+
+            public override int GetHashCode()
+            {
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// <see cref="IAdvantage"/> implementation for player two.
+        /// </summary>
+        private class TwoPlayer : IAdvantage
+        {
+            public IUnion2<PlayerOne, PlayerTwo> Player =>
+                GenericUnions.DoubletFactory<PlayerOne, PlayerTwo>()
+                .Second(new PlayerTwo());
+
+            public override bool Equals(object? obj)
+            {
+                return obj == this || obj is TwoPlayer;
+            }
+
+            public override int GetHashCode()
+            {
+                return 0;
+            }
         }
     }
 
@@ -269,7 +352,7 @@ public class TennisGame
         /// </returns>
         static new IGame One()
         {
-            throw new NotImplementedException();
+            return new OnePlayer();
         }
 
         /// <summary>
@@ -281,7 +364,47 @@ public class TennisGame
         /// </returns>
         static new IGame Two()
         {
-            throw new NotImplementedException();
+            return new TwoPlayer();
+        }
+
+        /// <summary>
+        /// <see cref="IGame"/> implementation for player one.
+        /// </summary>
+        private class OnePlayer : IGame
+        {
+            public IUnion2<PlayerOne, PlayerTwo> Player =>
+                GenericUnions.DoubletFactory<PlayerOne, PlayerTwo>()
+                .First(new PlayerOne());
+
+            public override bool Equals(object? obj)
+            {
+                return obj == this || obj is OnePlayer;
+            }
+
+            public override int GetHashCode()
+            {
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// <see cref="IGame"/> implementation for player two.
+        /// </summary>
+        private class TwoPlayer : IGame
+        {
+            public IUnion2<PlayerOne, PlayerTwo> Player =>
+                GenericUnions.DoubletFactory<PlayerOne, PlayerTwo>()
+                .Second(new PlayerTwo());
+
+            public override bool Equals(object? obj)
+            {
+                return obj == this || obj is TwoPlayer;
+            }
+
+            public override int GetHashCode()
+            {
+                return 0;
+            }
         }
     }
 
@@ -318,7 +441,7 @@ public class TennisGame
         /// </returns>
         static IPlayer Two()
         {
-            throw new NotImplementedException();
+            return new TwoPlayer();
         }
 
         /// <summary>
@@ -343,6 +466,16 @@ public class TennisGame
             public IUnion2<PlayerOne, PlayerTwo> Player =>
                 GenericUnions.DoubletFactory<PlayerOne, PlayerTwo>()
                 .First(new PlayerOne());
+        }
+
+        /// <summary>
+        /// <see cref="IPlayer"/> implementation for player two.
+        /// </summary>
+        private class TwoPlayer : IPlayer
+        {
+            public IUnion2<PlayerOne, PlayerTwo> Player =>
+                GenericUnions.DoubletFactory<PlayerOne, PlayerTwo>()
+                .Second(new PlayerTwo());
         }
     }
 

@@ -26,6 +26,16 @@ public interface IUnion2<TFirst, TSecond>
         /// A <see cref="IUnion2{TFirst, TSecond}"/> object wrapping the value.
         /// </returns>
         IUnion2<TFirst, TSecond> First(TFirst value);
+
+        /// <summary>
+        /// Creates a Union2 wrapping a value of the second
+        /// <paramref name="value"/>.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>
+        /// A <see cref="IUnion2{TFirst, TSecond}"/> object wrapping the value.
+        /// </returns>
+        IUnion2<TFirst, TSecond> Second(TSecond value);
     }
 
     /// <summary>

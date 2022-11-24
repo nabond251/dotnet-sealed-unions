@@ -47,6 +47,11 @@ public static class GenericUnions
         {
             return new Union2First<TA, TB>(value);
         }
+
+        public IUnion2<TA, TB> Second(TB value)
+        {
+            return new Union2Second<TA, TB>(value);
+        }
     }
 
     private sealed class Union4Factory<TA, TB, TC, TD> : IUnion4<TA, TB, TC, TD>.IFactory
