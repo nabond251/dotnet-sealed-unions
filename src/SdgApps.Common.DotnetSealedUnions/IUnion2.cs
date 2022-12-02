@@ -5,27 +5,35 @@
 namespace SdgApps.Common.DotnetSealedUnions;
 
 /// <summary>
-/// <see cref="IUnion2{TFirst, TSecond}"/> represents a
-/// union containing an element of 4 possible types.
+/// <see cref="IUnion2{TFirst, TSecond}"/>
+/// represents a union containing an element of 2 possible types.
 /// </summary>
 /// <typeparam name="TFirst">First possible type.</typeparam>
 /// <typeparam name="TSecond">Second possible type.</typeparam>
-public interface IUnion2<TFirst, TSecond>
+public interface IUnion2<
+    TFirst,
+    TSecond>
 {
     /// <summary>
-    /// Creator class for <see cref="IUnion2{TFirst, TSecond}"/>.
+    /// Creator class for
+    /// <see cref="IUnion2{TFirst, TSecond}"/>.
     /// </summary>
     public interface IFactory
     {
         /// <summary>
-        /// Creates a Union4 wrapping a value of the first
+        /// Creates a Union2 wrapping a value of the first
         /// <paramref name="value"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
-        /// A <see cref="IUnion2{TFirst, TSecond}"/> object wrapping the value.
+        /// A
+        /// <see cref="IUnion2{TFirst, TSecond}"/>
+        /// object wrapping the value.
         /// </returns>
-        IUnion2<TFirst, TSecond> First(TFirst value);
+        IUnion2<
+            TFirst,
+            TSecond>
+            First(TFirst value);
 
         /// <summary>
         /// Creates a Union2 wrapping a value of the second
@@ -33,9 +41,14 @@ public interface IUnion2<TFirst, TSecond>
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
-        /// A <see cref="IUnion2{TFirst, TSecond}"/> object wrapping the value.
+        /// A
+        /// <see cref="IUnion2{TFirst, TSecond}"/>
+        /// object wrapping the value.
         /// </returns>
-        IUnion2<TFirst, TSecond> Second(TSecond value);
+        IUnion2<
+            TFirst,
+            TSecond>
+            Second(TSecond value);
     }
 
     /// <summary>
