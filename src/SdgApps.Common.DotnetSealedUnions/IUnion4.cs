@@ -5,14 +5,18 @@
 namespace SdgApps.Common.DotnetSealedUnions;
 
 /// <summary>
-/// <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}"/> represents a
-/// union containing an element of 4 possible types.
+/// <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}"/>
+/// represents a union containing an element of 4 possible types.
 /// </summary>
 /// <typeparam name="TFirst">First possible type.</typeparam>
 /// <typeparam name="TSecond">Second possible type.</typeparam>
 /// <typeparam name="TThird">Third possible type.</typeparam>
 /// <typeparam name="TFourth">Fourth possible type.</typeparam>
-public interface IUnion4<TFirst, TSecond, TThird, TFourth>
+public interface IUnion4<
+    TFirst,
+    TSecond,
+    TThird,
+    TFourth>
 {
     /// <summary>
     /// Creator class for
@@ -26,10 +30,16 @@ public interface IUnion4<TFirst, TSecond, TThird, TFourth>
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
-        /// A <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}"/> object
-        /// wrapping the value.
+        /// A
+        /// <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}"/>
+        /// object wrapping the value.
         /// </returns>
-        IUnion4<TFirst, TSecond, TThird, TFourth> First(TFirst value);
+        IUnion4<
+            TFirst,
+            TSecond,
+            TThird,
+            TFourth>
+            First(TFirst value);
 
         /// <summary>
         /// Creates a Union4 wrapping a value of the second
@@ -37,10 +47,16 @@ public interface IUnion4<TFirst, TSecond, TThird, TFourth>
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
-        /// A <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}"/> object
-        /// wrapping the value.
+        /// A
+        /// <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}"/>
+        /// object wrapping the value.
         /// </returns>
-        IUnion4<TFirst, TSecond, TThird, TFourth> Second(TSecond value);
+        IUnion4<
+            TFirst,
+            TSecond,
+            TThird,
+            TFourth>
+            Second(TSecond value);
 
         /// <summary>
         /// Creates a Union4 wrapping a value of the third
@@ -48,10 +64,16 @@ public interface IUnion4<TFirst, TSecond, TThird, TFourth>
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
-        /// A <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}"/> object
-        /// wrapping the value.
+        /// A
+        /// <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}"/>
+        /// object wrapping the value.
         /// </returns>
-        IUnion4<TFirst, TSecond, TThird, TFourth> Third(TThird value);
+        IUnion4<
+            TFirst,
+            TSecond,
+            TThird,
+            TFourth>
+            Third(TThird value);
 
         /// <summary>
         /// Creates a Union4 wrapping a value of the fourth
@@ -59,10 +81,16 @@ public interface IUnion4<TFirst, TSecond, TThird, TFourth>
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
-        /// A <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}"/> object
-        /// wrapping the value.
+        /// A
+        /// <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}"/>
+        /// object wrapping the value.
         /// </returns>
-        IUnion4<TFirst, TSecond, TThird, TFourth> Fourth(TFourth value);
+        IUnion4<
+            TFirst,
+            TSecond,
+            TThird,
+            TFourth>
+            Fourth(TFourth value);
     }
 
     /// <summary>
