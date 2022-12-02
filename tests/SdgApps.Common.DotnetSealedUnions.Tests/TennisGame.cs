@@ -226,6 +226,24 @@ public class TennisGame
         }
 
         /// <summary>
+        /// Gets string representation of <see cref="IPlayerPoints"/>.
+        /// </summary>
+        /// <param name="playerPoints">
+        /// <see cref="IPlayerPoints"/> whose string representation to get.
+        /// </param>
+        /// <returns>
+        /// String representation of <paramref name="playerPoints"/>.
+        /// </returns>
+        static string GetString(IPlayerPoints playerPoints)
+        {
+            return playerPoints.PlayerPoints.Join(
+                zero => "0",
+                fifteen => "15",
+                thirty => "30",
+                forty => "40");
+        }
+
+        /// <summary>
         /// <see cref="IPlayerPoints"/> implementation with zero points.
         /// </summary>
         private class ZeroPlayerPoints : IPlayerPoints
@@ -592,11 +610,13 @@ public class TennisGame
         /// Initializes a new instance of the <see cref="Points"/> class.
         /// </summary>
         /// <param name="playerOnePoints">Player one points value.</param>
-        /// <param name="value">Player two points value.</param>
-        public Points(IPlayerPoints playerOnePoints, IPlayerPoints value)
+        /// <param name="playerTwoPoints">Player two points value.</param>
+        public Points(
+            IPlayerPoints playerOnePoints,
+            IPlayerPoints playerTwoPoints)
         {
             this.PlayerOnePoints = playerOnePoints;
-            this.PlayerTwoPoints = value;
+            this.PlayerTwoPoints = playerTwoPoints;
         }
 
         /// <summary>
@@ -613,10 +633,10 @@ public class TennisGame
         public override bool Equals(object? obj)
         {
             return obj is Points points &&
-                   EqualityComparer<IUnion4<Zero, Fifteen, Thirty, Forty>>.Default.Equals(
-                       this.PlayerOnePoints.PlayerPoints, points.PlayerOnePoints.PlayerPoints) &&
-                   EqualityComparer<IUnion4<Zero, Fifteen, Thirty, Forty>>.Default.Equals(
-                       this.PlayerTwoPoints.PlayerPoints, points.PlayerTwoPoints.PlayerPoints);
+                EqualityComparer<IUnion4<Zero, Fifteen, Thirty, Forty>>.Default.Equals(
+                    this.PlayerOnePoints.PlayerPoints, points.PlayerOnePoints.PlayerPoints) &&
+                EqualityComparer<IUnion4<Zero, Fifteen, Thirty, Forty>>.Default.Equals(
+                    this.PlayerTwoPoints.PlayerPoints, points.PlayerTwoPoints.PlayerPoints);
         }
 
         /// <inheritdoc/>
