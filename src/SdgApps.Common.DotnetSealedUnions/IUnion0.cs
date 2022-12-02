@@ -19,8 +19,8 @@ public interface IUnion0<
     public interface IFactory
     {
         /// <summary>
-        /// Creates a Union0 wrapping a value of the first
-        /// <paramref name="value"/>.
+        /// Creates a Union0 wrapping a <paramref name="value"/> of the first
+        /// type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>

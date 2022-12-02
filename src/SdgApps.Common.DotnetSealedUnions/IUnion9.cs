@@ -35,8 +35,8 @@ public interface IUnion9<
     public interface IFactory
     {
         /// <summary>
-        /// Creates a Union9 wrapping a value of the first
-        /// <paramref name="value"/>.
+        /// Creates a Union9 wrapping a <paramref name="value"/> of the first
+        /// type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
@@ -57,8 +57,8 @@ public interface IUnion9<
             First(TFirst value);
 
         /// <summary>
-        /// Creates a Union9 wrapping a value of the second
-        /// <paramref name="value"/>.
+        /// Creates a Union9 wrapping a <paramref name="value"/> of the second
+        /// type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
@@ -79,8 +79,8 @@ public interface IUnion9<
             Second(TSecond value);
 
         /// <summary>
-        /// Creates a Union9 wrapping a value of the third
-        /// <paramref name="value"/>.
+        /// Creates a Union9 wrapping a <paramref name="value"/> of the third
+        /// type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
@@ -101,8 +101,8 @@ public interface IUnion9<
             Third(TThird value);
 
         /// <summary>
-        /// Creates a Union9 wrapping a value of the fourth
-        /// <paramref name="value"/>.
+        /// Creates a Union9 wrapping a <paramref name="value"/> of the fourth
+        /// type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
@@ -123,8 +123,8 @@ public interface IUnion9<
             Fourth(TFourth value);
 
         /// <summary>
-        /// Creates a Union9 wrapping a value of the fifth
-        /// <paramref name="value"/>.
+        /// Creates a Union9 wrapping a <paramref name="value"/> of the fifth
+        /// type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
@@ -145,8 +145,8 @@ public interface IUnion9<
             Fifth(TFifth value);
 
         /// <summary>
-        /// Creates a Union9 wrapping a value of the sixth
-        /// <paramref name="value"/>.
+        /// Creates a Union9 wrapping a <paramref name="value"/> of the sixth
+        /// type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
@@ -167,8 +167,8 @@ public interface IUnion9<
             Sixth(TSixth value);
 
         /// <summary>
-        /// Creates a Union9 wrapping a value of the seventh
-        /// <paramref name="value"/>.
+        /// Creates a Union9 wrapping a <paramref name="value"/> of the seventh
+        /// type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
@@ -189,8 +189,8 @@ public interface IUnion9<
             Seventh(TSeventh value);
 
         /// <summary>
-        /// Creates a Union9 wrapping a value of the eighth
-        /// <paramref name="value"/>.
+        /// Creates a Union9 wrapping a <paramref name="value"/> of the eighth
+        /// type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
@@ -211,8 +211,8 @@ public interface IUnion9<
             Eighth(TEighth value);
 
         /// <summary>
-        /// Creates a Union9 wrapping a value of the ninth
-        /// <paramref name="value"/>.
+        /// Creates a Union9 wrapping a <paramref name="value"/> of the ninth
+        /// type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>

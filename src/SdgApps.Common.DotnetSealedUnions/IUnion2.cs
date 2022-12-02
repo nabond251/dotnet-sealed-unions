@@ -21,8 +21,8 @@ public interface IUnion2<
     public interface IFactory
     {
         /// <summary>
-        /// Creates a Union2 wrapping a value of the first
-        /// <paramref name="value"/>.
+        /// Creates a Union2 wrapping a <paramref name="value"/> of the first
+        /// type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
@@ -36,8 +36,8 @@ public interface IUnion2<
             First(TFirst value);
 
         /// <summary>
-        /// Creates a Union2 wrapping a value of the second
-        /// <paramref name="value"/>.
+        /// Creates a Union2 wrapping a <paramref name="value"/> of the second
+        /// type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>
