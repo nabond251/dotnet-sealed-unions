@@ -9,34 +9,81 @@ namespace SdgApps.Common.DotnetSealedUnions.Generic;
 /// </summary>
 public static class GenericUnions
 {
-    public static IUnion0<TResult>.IFactory NulletFactory<TResult>()
+    /// <summary>
+    /// Initializes a new instance of the
+    /// <see cref="IUnion0{TFirst}.IFactory"/>
+    /// class.
+    /// </summary>
+    /// <typeparam name="TA">First possible type.</typeparam>
+    /// <returns>
+    /// A new instance of the
+    /// <see cref="IUnion0{TFirst}.IFactory"/>
+    /// class.
+    /// </returns>
+    public static IUnion0<TA>.IFactory
+        NulletFactory<TA>()
     {
-        return new Union0Factory<TResult>();
-    }
-
-    public static IUnion1<TResult>.IFactory SingletFactory<TResult>()
-    {
-        return new Union1Factory<TResult>();
+        return new Union0Factory<TA>();
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="IUnion2{TFirst, TSecond}"/>
+    /// Initializes a new instance of the
+    /// <see cref="IUnion1{TFirst}.IFactory"/>
+    /// class.
+    /// </summary>
+    /// <typeparam name="TA">First possible type.</typeparam>
+    /// <returns>
+    /// A new instance of the
+    /// <see cref="IUnion1{TFirst}.IFactory"/>
+    /// class.
+    /// </returns>
+    public static IUnion1<TA>.IFactory
+        SingletFactory<TA>()
+    {
+        return new Union1Factory<TA>();
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the
+    /// <see cref="IUnion2{TFirst, TSecond}.IFactory"/>
     /// class.
     /// </summary>
     /// <typeparam name="TA">First possible type.</typeparam>
     /// <typeparam name="TB">Second possible type.</typeparam>
     /// <returns>
     /// A new instance of the
-    /// <see cref="IUnion2{TFirst, TSecond}"/> class.
+    /// <see cref="IUnion2{TFirst, TSecond}.IFactory"/>
+    /// class.
     /// </returns>
-    public static IUnion2<TA, TB>.IFactory DoubletFactory<TA, TB>()
+    public static IUnion2<TA, TB>.IFactory
+        DoubletFactory<TA, TB>()
     {
         return new Union2Factory<TA, TB>();
     }
 
     /// <summary>
     /// Initializes a new instance of the
-    /// <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}"/> class.
+    /// <see cref="IUnion3{TFirst, TSecond, TThird}.IFactory"/>
+    /// class.
+    /// </summary>
+    /// <typeparam name="TA">First possible type.</typeparam>
+    /// <typeparam name="TB">Second possible type.</typeparam>
+    /// <typeparam name="TC">Third possible type.</typeparam>
+    /// <returns>
+    /// A new instance of the
+    /// <see cref="IUnion3{TFirst, TSecond, TThird}.IFactory"/>
+    /// class.
+    /// </returns>
+    public static IUnion3<TA, TB, TC>.IFactory
+        TripletFactory<TA, TB, TC>()
+    {
+        return new Union3Factory<TA, TB, TC>();
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the
+    /// <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}.IFactory"/>
+    /// class.
     /// </summary>
     /// <typeparam name="TA">First possible type.</typeparam>
     /// <typeparam name="TB">Second possible type.</typeparam>
@@ -44,16 +91,108 @@ public static class GenericUnions
     /// <typeparam name="TD">Fourth possible type.</typeparam>
     /// <returns>
     /// A new instance of the
-    /// <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}"/> class.
+    /// <see cref="IUnion4{TFirst, TSecond, TThird, TFourth}.IFactory"/>
+    /// class.
     /// </returns>
-    public static IUnion4<TA, TB, TC, TD>.IFactory QuartetFactory<TA, TB, TC, TD>()
+    public static IUnion4<TA, TB, TC, TD>.IFactory
+        QuartetFactory<TA, TB, TC, TD>()
     {
         return new Union4Factory<TA, TB, TC, TD>();
     }
 
     /// <summary>
     /// Initializes a new instance of the
-    /// <see cref="IUnion9{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth, TNinth}"/>
+    /// <see cref="IUnion5{TFirst, TSecond, TThird, TFourth, TFifth}.IFactory"/>
+    /// class.
+    /// </summary>
+    /// <typeparam name="TA">First possible type.</typeparam>
+    /// <typeparam name="TB">Second possible type.</typeparam>
+    /// <typeparam name="TC">Third possible type.</typeparam>
+    /// <typeparam name="TD">Fourth possible type.</typeparam>
+    /// <typeparam name="TE">Fifth possible type.</typeparam>
+    /// <returns>
+    /// A new instance of the
+    /// <see cref="IUnion5{TFirst, TSecond, TThird, TFourth, TFifth}.IFactory"/>
+    /// class.
+    /// </returns>
+    public static IUnion5<TA, TB, TC, TD, TE>.IFactory
+        QuintetFactory<TA, TB, TC, TD, TE>()
+    {
+        return new Union5Factory<TA, TB, TC, TD, TE>();
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the
+    /// <see cref="IUnion6{TFirst, TSecond, TThird, TFourth, TFifth, TSixth}.IFactory"/>
+    /// class.
+    /// </summary>
+    /// <typeparam name="TA">First possible type.</typeparam>
+    /// <typeparam name="TB">Second possible type.</typeparam>
+    /// <typeparam name="TC">Third possible type.</typeparam>
+    /// <typeparam name="TD">Fourth possible type.</typeparam>
+    /// <typeparam name="TE">Fifth possible type.</typeparam>
+    /// <typeparam name="TF">Sixth possible type.</typeparam>
+    /// <returns>
+    /// A new instance of the
+    /// <see cref="IUnion6{TFirst, TSecond, TThird, TFourth, TFifth, TSixth}.IFactory"/>
+    /// class.
+    /// </returns>
+    public static IUnion6<TA, TB, TC, TD, TE, TF>.IFactory
+        SextetFactory<TA, TB, TC, TD, TE, TF>()
+    {
+        return new Union6Factory<TA, TB, TC, TD, TE, TF>();
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the
+    /// <see cref="IUnion7{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh}.IFactory"/>
+    /// class.
+    /// </summary>
+    /// <typeparam name="TA">First possible type.</typeparam>
+    /// <typeparam name="TB">Second possible type.</typeparam>
+    /// <typeparam name="TC">Third possible type.</typeparam>
+    /// <typeparam name="TD">Fourth possible type.</typeparam>
+    /// <typeparam name="TE">Fifth possible type.</typeparam>
+    /// <typeparam name="TF">Sixth possible type.</typeparam>
+    /// <typeparam name="TG">Seventh possible type.</typeparam>
+    /// <returns>
+    /// A new instance of the
+    /// <see cref="IUnion7{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh}.IFactory"/>
+    /// class.
+    /// </returns>
+    public static IUnion7<TA, TB, TC, TD, TE, TF, TG>.IFactory
+        SeptetFactory<TA, TB, TC, TD, TE, TF, TG>()
+    {
+        return new Union7Factory<TA, TB, TC, TD, TE, TF, TG>();
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the
+    /// <see cref="IUnion8{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth}.IFactory"/>
+    /// class.
+    /// </summary>
+    /// <typeparam name="TA">First possible type.</typeparam>
+    /// <typeparam name="TB">Second possible type.</typeparam>
+    /// <typeparam name="TC">Third possible type.</typeparam>
+    /// <typeparam name="TD">Fourth possible type.</typeparam>
+    /// <typeparam name="TE">Fifth possible type.</typeparam>
+    /// <typeparam name="TF">Sixth possible type.</typeparam>
+    /// <typeparam name="TG">Seventh possible type.</typeparam>
+    /// <typeparam name="TH">Eighth possible type.</typeparam>
+    /// <returns>
+    /// A new instance of the
+    /// <see cref="IUnion8{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth}.IFactory"/>
+    /// class.
+    /// </returns>
+    public static IUnion8<TA, TB, TC, TD, TE, TF, TG, TH>.IFactory
+        OctetFactory<TA, TB, TC, TD, TE, TF, TG, TH>()
+    {
+        return new Union8Factory<TA, TB, TC, TD, TE, TF, TG, TH>();
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the
+    /// <see cref="IUnion9{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth, TNinth}.IFactory"/>
     /// class.
     /// </summary>
     /// <typeparam name="TA">First possible type.</typeparam>
@@ -67,7 +206,7 @@ public static class GenericUnions
     /// <typeparam name="TI">Ninth possible type.</typeparam>
     /// <returns>
     /// A new instance of the
-    /// <see cref="IUnion9{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth, TNinth}"/>
+    /// <see cref="IUnion9{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth, TNinth}.IFactory"/>
     /// class.
     /// </returns>
     public static IUnion9<TA, TB, TC, TD, TE, TF, TG, TH, TI>.IFactory
