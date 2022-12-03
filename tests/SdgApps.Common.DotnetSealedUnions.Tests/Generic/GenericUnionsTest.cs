@@ -24,8 +24,8 @@ public class GenericUnionsTest
     /// <summary>
     /// Array of expected union data.
     /// </summary>
-    public static readonly IReadOnlyCollection<string> ValidArray = new List<string>()
-    { VALID, VALID };
+    public static readonly IReadOnlyCollection<string> ValidArray = new List<string>
+    { VALID, VALID, VALID, VALID, VALID, VALID, VALID, VALID, VALID, VALID };
 
     /// <summary>
     /// Valid join.
@@ -52,184 +52,181 @@ public class GenericUnionsTest
     [Fact]
     public void TestJoin()
     {
-        IUnion0<int>.IFactory nulletFactory = GenericUnions.nulletFactory<int>();
-        IUnion1.IFactory<int> singletFactory = GenericUnions.singletFactory();
-        IUnion2.IFactory<int, int> doubletFactory = GenericUnions.doubletFactory();
-        IUnion3.IFactory<int, int, int> tripletFactory = GenericUnions.tripletFactory();
-        IUnion4.IFactory<int, int, int, int> quartetFactory = GenericUnions
-                .quartetFactory();
-        IUnion5.IFactory<int, int, int, int, int> quintetFactory = GenericUnions
-                .quintetFactory();
-        IUnion6.IFactory<int, int, int, int, int, int> sextetFactory = GenericUnions
-                .sextetFactory();
-        IUnion7.IFactory<int, int, int, int, int, int, int> septetFactory = GenericUnions
-                .septetFactory();
-        IUnion8.IFactory<int, int, int, int, int, int, int, int> octetFactory = GenericUnions
-                .octetFactory();
-        IUnion9.IFactory<int, int, int, int, int, int, int, int, int> nonetFactory = GenericUnions
-                .nonetFactory();
-        String join0 = nulletFactory.first(0).join(VALUE);
-        String join1 = singletFactory.first(0).join(VALUE, () -> INVALID);
-        String join2 = doubletFactory.first(0).join(VALUE, EMPTY);
-        String join3 = tripletFactory.first(0).join(VALUE, EMPTY, EMPTY);
-        String join4 = quartetFactory.first(0).join(VALUE, EMPTY, EMPTY, EMPTY);
-        String join5 = quintetFactory.first(0).join(VALUE, EMPTY, EMPTY, EMPTY, EMPTY);
-        String join6 = sextetFactory.first(0).join(VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
-        String join7 = septetFactory.first(0).join(VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
-        String join8 = octetFactory.first(0).join(VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-                EMPTY);
-        String join9 = nonetFactory.first(0).join(VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-                EMPTY, EMPTY);
-        Assert.assertEquals(VALID_ARRAY,
-                Arrays.asList(join0, join1, join2, join3, join4, join5, join6, join7, join8, join9));
-        join1 = singletFactory.none().join(EMPTY, () -> VALID);
-        join2 = doubletFactory.second(0).join(EMPTY, VALUE);
-        join3 = tripletFactory.second(0).join(EMPTY, VALUE, EMPTY);
-        join4 = quartetFactory.second(0).join(EMPTY, VALUE, EMPTY, EMPTY);
-        join5 = quintetFactory.second(0).join(EMPTY, VALUE, EMPTY, EMPTY, EMPTY);
-        join6 = sextetFactory.second(0).join(EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY);
-        join7 = septetFactory.second(0).join(EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
-        join8 = octetFactory.second(0).join(EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
-        join9 = nonetFactory.second(0).join(EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-                EMPTY);
-        Assert.assertEquals(VALID_ARRAY,
-                Arrays.asList(join0, join1, join2, join3, join4, join5, join6, join7, join8, join9));
-        join3 = tripletFactory.third(0).join(EMPTY, EMPTY, VALUE);
-        join4 = quartetFactory.third(0).join(EMPTY, EMPTY, VALUE, EMPTY);
-        join5 = quintetFactory.third(0).join(EMPTY, EMPTY, VALUE, EMPTY, EMPTY);
-        join6 = sextetFactory.third(0).join(EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY);
-        join7 = septetFactory.third(0).join(EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY);
-        join8 = octetFactory.third(0).join(EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
-        join9 = nonetFactory.third(0).join(EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-                EMPTY);
-        Assert.assertEquals(VALID_ARRAY,
-                Arrays.asList(join0, join1, join2, join3, join4, join5, join6, join7, join8, join9));
-        join4 = quartetFactory.fourth(0).join(EMPTY, EMPTY, EMPTY, VALUE);
-        join5 = quintetFactory.fourth(0).join(EMPTY, EMPTY, EMPTY, VALUE, EMPTY);
-        join6 = sextetFactory.fourth(0).join(EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY);
-        join7 = septetFactory.fourth(0).join(EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY);
-        join8 = octetFactory.fourth(0).join(EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY);
-        join9 = nonetFactory.fourth(0).join(EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY,
-                EMPTY);
-        Assert.assertEquals(VALID_ARRAY,
-                Arrays.asList(join0, join1, join2, join3, join4, join5, join6, join7, join8, join9));
-        join5 = quintetFactory.fifth(0).join(EMPTY, EMPTY, EMPTY, EMPTY, VALUE);
-        join6 = sextetFactory.fifth(0).join(EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY);
-        join7 = septetFactory.fifth(0).join(EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY);
-        join8 = octetFactory.fifth(0).join(EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY);
-        join9 = nonetFactory.fifth(0).join(EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY,
-                EMPTY);
-        Assert.assertEquals(VALID_ARRAY,
-                Arrays.asList(join0, join1, join2, join3, join4, join5, join6, join7, join8, join9));
-        join6 = sextetFactory.sixth(0).join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE);
-        join7 = septetFactory.sixth(0).join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY);
-        join8 = octetFactory.sixth(0).join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY);
-        join9 = nonetFactory.sixth(0).join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY,
-                EMPTY);
-        Assert.assertEquals(VALID_ARRAY,
-                Arrays.asList(join0, join1, join2, join3, join4, join5, join6, join7, join8, join9));
-        join7 = septetFactory.seventh(0).join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE);
-        join8 = octetFactory.seventh(0).join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE,
-                EMPTY);
-        join9 = nonetFactory.seventh(0).join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY,
-                EMPTY);
-        Assert.assertEquals(VALID_ARRAY,
-                Arrays.asList(join0, join1, join2, join3, join4, join5, join6, join7, join8, join9));
-        join8 = octetFactory.eighth(0).join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE);
-        join9 = nonetFactory.eighth(0).join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE,
-                EMPTY);
-        Assert.assertEquals(VALID_ARRAY,
-                Arrays.asList(join0, join1, join2, join3, join4, join5, join6, join7, join8, join9));
-        join9 = nonetFactory.ninth(0).join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-                VALUE);
-        Assert.assertEquals(VALID_ARRAY,
-                Arrays.asList(join0, join1, join2, join3, join4, join5, join6, join7, join8, join9));
+        IUnion0<int>.IFactory nulletFactory = GenericUnions.NulletFactory<int>();
+        IUnion1<int>.IFactory singletFactory = GenericUnions.SingletFactory<int>();
+        IUnion2<int, int>.IFactory doubletFactory = GenericUnions.DoubletFactory<int, int>();
+        IUnion3<int, int, int>.IFactory tripletFactory = GenericUnions.TripletFactory<int, int, int>();
+        IUnion4<int, int, int, int>.IFactory quartetFactory = GenericUnions
+                .QuartetFactory<int, int, int, int>();
+        IUnion5<int, int, int, int, int>.IFactory quintetFactory = GenericUnions
+                .QuintetFactory<int, int, int, int, int>();
+        IUnion6<int, int, int, int, int, int>.IFactory sextetFactory = GenericUnions
+                .SextetFactory<int, int, int, int, int, int>();
+        IUnion7<int, int, int, int, int, int, int>.IFactory septetFactory = GenericUnions
+                .SeptetFactory<int, int, int, int, int, int, int>();
+        IUnion8<int, int, int, int, int, int, int, int>.IFactory octetFactory = GenericUnions
+                .OctetFactory<int, int, int, int, int, int, int, int>();
+        IUnion9<int, int, int, int, int, int, int, int, int>.IFactory nonetFactory = GenericUnions
+                .NonetFactory<int, int, int, int, int, int, int, int, int>();
+        string join0 = nulletFactory.First(0).Join(VALUE);
+        string join1 = singletFactory.First(0).Join(VALUE, () => INVALID);
+        string join2 = doubletFactory.First(0).Join(VALUE, EMPTY);
+        string join3 = tripletFactory.First(0).Join(VALUE, EMPTY, EMPTY);
+        string join4 = quartetFactory.First(0).Join(VALUE, EMPTY, EMPTY, EMPTY);
+        string join5 = quintetFactory.First(0).Join(VALUE, EMPTY, EMPTY, EMPTY, EMPTY);
+        string join6 = sextetFactory.First(0).Join(VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
+        string join7 = septetFactory.First(0).Join(VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
+        string join8 = octetFactory.First(0).Join(VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
+        string join9 = nonetFactory.First(0).Join(VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
+        Assert.Equal(
+            ValidArray,
+            new List<string> { join0, join1, join2, join3, join4, join5, join6, join7, join8, join9 });
+        join1 = singletFactory.None().Join(EMPTY, () => VALID);
+        join2 = doubletFactory.Second(0).Join(EMPTY, VALUE);
+        join3 = tripletFactory.Second(0).Join(EMPTY, VALUE, EMPTY);
+        join4 = quartetFactory.Second(0).Join(EMPTY, VALUE, EMPTY, EMPTY);
+        join5 = quintetFactory.Second(0).Join(EMPTY, VALUE, EMPTY, EMPTY, EMPTY);
+        join6 = sextetFactory.Second(0).Join(EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY);
+        join7 = septetFactory.Second(0).Join(EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
+        join8 = octetFactory.Second(0).Join(EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
+        join9 = nonetFactory.Second(0).Join(EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
+        Assert.Equal(
+            ValidArray,
+            new List<string> { join0, join1, join2, join3, join4, join5, join6, join7, join8, join9 });
+        join3 = tripletFactory.Third(0).Join(EMPTY, EMPTY, VALUE);
+        join4 = quartetFactory.Third(0).Join(EMPTY, EMPTY, VALUE, EMPTY);
+        join5 = quintetFactory.Third(0).Join(EMPTY, EMPTY, VALUE, EMPTY, EMPTY);
+        join6 = sextetFactory.Third(0).Join(EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY);
+        join7 = septetFactory.Third(0).Join(EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY);
+        join8 = octetFactory.Third(0).Join(EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
+        join9 = nonetFactory.Third(0).Join(EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
+        Assert.Equal(
+            ValidArray,
+            new List<string> { join0, join1, join2, join3, join4, join5, join6, join7, join8, join9 });
+        join4 = quartetFactory.Fourth(0).Join(EMPTY, EMPTY, EMPTY, VALUE);
+        join5 = quintetFactory.Fourth(0).Join(EMPTY, EMPTY, EMPTY, VALUE, EMPTY);
+        join6 = sextetFactory.Fourth(0).Join(EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY);
+        join7 = septetFactory.Fourth(0).Join(EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY);
+        join8 = octetFactory.Fourth(0).Join(EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY);
+        join9 = nonetFactory.Fourth(0).Join(EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY);
+        Assert.Equal(
+            ValidArray,
+            new List<string> { join0, join1, join2, join3, join4, join5, join6, join7, join8, join9 });
+        join5 = quintetFactory.Fifth(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, VALUE);
+        join6 = sextetFactory.Fifth(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY);
+        join7 = septetFactory.Fifth(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY);
+        join8 = octetFactory.Fifth(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY);
+        join9 = nonetFactory.Fifth(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY, EMPTY);
+        Assert.Equal(
+            ValidArray,
+            new List<string> { join0, join1, join2, join3, join4, join5, join6, join7, join8, join9 });
+        join6 = sextetFactory.Sixth(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE);
+        join7 = septetFactory.Sixth(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY);
+        join8 = octetFactory.Sixth(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY);
+        join9 = nonetFactory.Sixth(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY, EMPTY);
+        Assert.Equal(
+            ValidArray,
+            new List<string> { join0, join1, join2, join3, join4, join5, join6, join7, join8, join9 });
+        join7 = septetFactory.Seventh(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE);
+        join8 = octetFactory.Seventh(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY);
+        join9 = nonetFactory.Seventh(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY, EMPTY);
+        Assert.Equal(
+            ValidArray,
+            new List<string> { join0, join1, join2, join3, join4, join5, join6, join7, join8, join9 });
+        join8 = octetFactory.Eighth(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE);
+        join9 = nonetFactory.Eighth(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE, EMPTY);
+        Assert.Equal(
+            ValidArray,
+            new List<string> { join0, join1, join2, join3, join4, join5, join6, join7, join8, join9 });
+        join9 = nonetFactory.Ninth(0).Join(EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, VALUE);
+        Assert.Equal(
+            ValidArray,
+            new List<string> { join0, join1, join2, join3, join4, join5, join6, join7, join8, join9 });
     }
 
-    @Test
-    public void testContinued() throws Exception {
-        IUnion0.IFactory<int> nulletFactory = GenericUnions.nulletFactory();
-        IUnion1.IFactory<int> singletFactory = GenericUnions.singletFactory();
-        IUnion2.IFactory<int, int> doubletFactory = GenericUnions.doubletFactory();
-        IUnion3.IFactory<int, int, int> tripletFactory = GenericUnions.tripletFactory();
-        IUnion4.IFactory<int, int, int, int> quartetFactory = GenericUnions
-                .quartetFactory();
-        IUnion5.IFactory<int, int, int, int, int> quintetFactory = GenericUnions
-                .quintetFactory();
-        IUnion6.IFactory<int, int, int, int, int, int> sextetFactory = GenericUnions
-                .sextetFactory();
-        IUnion7.IFactory<int, int, int, int, int, int, int> septetFactory = GenericUnions
-                .septetFactory();
-        IUnion8.IFactory<int, int, int, int, int, int, int, int> octetFactory = GenericUnions
-                .octetFactory();
-        IUnion9.IFactory<int, int, int, int, int, int, int, int, int> nonetFactory = GenericUnions
-                .nonetFactory();
-        nulletFactory.first(0).continued(SUCCESS);
-        singletFactory.first(0).continued(SUCCESS, () -> {
-            throw new IllegalStateException();
+    /// <summary>
+    /// Tests Continue overloads.
+    /// </summary>
+    [Fact]
+    public void TestContinued()
+    {
+        IUnion0<int>.IFactory nulletFactory = GenericUnions.NulletFactory<int>();
+        IUnion1<int>.IFactory singletFactory = GenericUnions.SingletFactory<int>();
+        IUnion2<int, int>.IFactory doubletFactory = GenericUnions.DoubletFactory<int, int>();
+        IUnion3<int, int, int>.IFactory tripletFactory = GenericUnions.TripletFactory<int, int, int>();
+        IUnion4<int, int, int, int>.IFactory quartetFactory = GenericUnions
+                .QuartetFactory<int, int, int, int>();
+        IUnion5<int, int, int, int, int>.IFactory quintetFactory = GenericUnions
+                .QuintetFactory<int, int, int, int, int>();
+        IUnion6<int, int, int, int, int, int>.IFactory sextetFactory = GenericUnions
+                .SextetFactory<int, int, int, int, int, int>();
+        IUnion7<int, int, int, int, int, int, int>.IFactory septetFactory = GenericUnions
+                .SeptetFactory<int, int, int, int, int, int, int>();
+        IUnion8<int, int, int, int, int, int, int, int>.IFactory octetFactory = GenericUnions
+                .OctetFactory<int, int, int, int, int, int, int, int>();
+        IUnion9<int, int, int, int, int, int, int, int, int>.IFactory nonetFactory = GenericUnions
+                .NonetFactory<int, int, int, int, int, int, int, int, int>();
+        nulletFactory.First(0).Continued(SUCCESS);
+        singletFactory.First(0).Continued(SUCCESS, () =>
+        {
+            throw new InvalidOperationException();
         });
-        doubletFactory.first(0).continued(SUCCESS, ERROR);
-        tripletFactory.first(0).continued(SUCCESS, ERROR, ERROR);
-        quartetFactory.first(0).continued(SUCCESS, ERROR, ERROR, ERROR);
-        quintetFactory.first(0).continued(SUCCESS, ERROR, ERROR, ERROR, ERROR);
-        sextetFactory.first(0).continued(SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR);
-        septetFactory.first(0).continued(SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR);
-        octetFactory.first(0).continued(SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR);
-        nonetFactory.first(0).continued(SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR,
-                ERROR);
-        /* */
-        singletFactory.none().continued(ERROR, () -> {
+        doubletFactory.First(0).Continued(SUCCESS, ERROR);
+        tripletFactory.First(0).Continued(SUCCESS, ERROR, ERROR);
+        quartetFactory.First(0).Continued(SUCCESS, ERROR, ERROR, ERROR);
+        quintetFactory.First(0).Continued(SUCCESS, ERROR, ERROR, ERROR, ERROR);
+        sextetFactory.First(0).Continued(SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR);
+        septetFactory.First(0).Continued(SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR);
+        octetFactory.First(0).Continued(SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR);
+        nonetFactory.First(0).Continued(SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR);
+
+        singletFactory.None().Continued(ERROR, () =>
+        {
         });
-        doubletFactory.second(0).continued(ERROR, SUCCESS);
-        tripletFactory.second(0).continued(ERROR, SUCCESS, ERROR);
-        quartetFactory.second(0).continued(ERROR, SUCCESS, ERROR, ERROR);
-        quintetFactory.second(0).continued(ERROR, SUCCESS, ERROR, ERROR, ERROR);
-        sextetFactory.second(0).continued(ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR);
-        septetFactory.second(0).continued(ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR);
-        octetFactory.second(0).continued(ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR);
-        nonetFactory.second(0).continued(ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR,
-                ERROR);
-        /* */
-        tripletFactory.third(0).continued(ERROR, ERROR, SUCCESS);
-        quartetFactory.third(0).continued(ERROR, ERROR, SUCCESS, ERROR);
-        quintetFactory.third(0).continued(ERROR, ERROR, SUCCESS, ERROR, ERROR);
-        sextetFactory.third(0).continued(ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR);
-        septetFactory.third(0).continued(ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR);
-        octetFactory.third(0).continued(ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR);
-        nonetFactory.third(0).continued(ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR,
-                ERROR);
-        /* */
-        quartetFactory.fourth(0).continued(ERROR, ERROR, ERROR, SUCCESS);
-        quintetFactory.fourth(0).continued(ERROR, ERROR, ERROR, SUCCESS, ERROR);
-        sextetFactory.fourth(0).continued(ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR);
-        septetFactory.fourth(0).continued(ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR);
-        octetFactory.fourth(0).continued(ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR);
-        nonetFactory.fourth(0).continued(ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR,
-                ERROR);
-        /* */
-        quintetFactory.fifth(0).continued(ERROR, ERROR, ERROR, ERROR, SUCCESS);
-        sextetFactory.fifth(0).continued(ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR);
-        septetFactory.fifth(0).continued(ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR);
-        octetFactory.fifth(0).continued(ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR);
-        nonetFactory.fifth(0).continued(ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR,
-                ERROR);
-        /* */
-        sextetFactory.sixth(0).continued(ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS);
-        septetFactory.sixth(0).continued(ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR);
-        octetFactory.sixth(0).continued(ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR);
-        nonetFactory.sixth(0).continued(ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR,
-                ERROR);
-        /* */
-        septetFactory.seventh(0).continued(ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS);
-        octetFactory.seventh(0).continued(ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR);
-        nonetFactory.seventh(0).continued(ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR,
-                ERROR);
-        /* */
-        octetFactory.eighth(0).continued(ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS);
-        nonetFactory.eighth(0).continued(ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS,
-                ERROR);
-        /* */
-        nonetFactory.ninth(0).continued(ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR,
-                SUCCESS);
+        doubletFactory.Second(0).Continued(ERROR, SUCCESS);
+        tripletFactory.Second(0).Continued(ERROR, SUCCESS, ERROR);
+        quartetFactory.Second(0).Continued(ERROR, SUCCESS, ERROR, ERROR);
+        quintetFactory.Second(0).Continued(ERROR, SUCCESS, ERROR, ERROR, ERROR);
+        sextetFactory.Second(0).Continued(ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR);
+        septetFactory.Second(0).Continued(ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR);
+        octetFactory.Second(0).Continued(ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR);
+        nonetFactory.Second(0).Continued(ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR);
+
+        tripletFactory.Third(0).Continued(ERROR, ERROR, SUCCESS);
+        quartetFactory.Third(0).Continued(ERROR, ERROR, SUCCESS, ERROR);
+        quintetFactory.Third(0).Continued(ERROR, ERROR, SUCCESS, ERROR, ERROR);
+        sextetFactory.Third(0).Continued(ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR);
+        septetFactory.Third(0).Continued(ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR);
+        octetFactory.Third(0).Continued(ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR);
+        nonetFactory.Third(0).Continued(ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR);
+
+        quartetFactory.Fourth(0).Continued(ERROR, ERROR, ERROR, SUCCESS);
+        quintetFactory.Fourth(0).Continued(ERROR, ERROR, ERROR, SUCCESS, ERROR);
+        sextetFactory.Fourth(0).Continued(ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR);
+        septetFactory.Fourth(0).Continued(ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR);
+        octetFactory.Fourth(0).Continued(ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR);
+        nonetFactory.Fourth(0).Continued(ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR, ERROR);
+
+        quintetFactory.Fifth(0).Continued(ERROR, ERROR, ERROR, ERROR, SUCCESS);
+        sextetFactory.Fifth(0).Continued(ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR);
+        septetFactory.Fifth(0).Continued(ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR);
+        octetFactory.Fifth(0).Continued(ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR);
+        nonetFactory.Fifth(0).Continued(ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR, ERROR);
+
+        sextetFactory.Sixth(0).Continued(ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS);
+        septetFactory.Sixth(0).Continued(ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR);
+        octetFactory.Sixth(0).Continued(ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR);
+        nonetFactory.Sixth(0).Continued(ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR, ERROR);
+
+        septetFactory.Seventh(0).Continued(ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS);
+        octetFactory.Seventh(0).Continued(ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR);
+        nonetFactory.Seventh(0).Continued(ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR, ERROR);
+
+        octetFactory.Eighth(0).Continued(ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS);
+        nonetFactory.Eighth(0).Continued(ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS, ERROR);
+
+        nonetFactory.Ninth(0).Continued(ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, ERROR, SUCCESS);
+
+        Assert.True(true);
     }
 }
