@@ -24,3 +24,8 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
     - name: Create package
       run: dotnet pack --configuration Release
+    - name: Upload dotnet package
+      uses: actions/upload-artifact@v3
+      with:
+        name: dotnet-package
+        path: src/SdgApps.Common.DotnetSealedUnions/bin/Release/*.nupkg
