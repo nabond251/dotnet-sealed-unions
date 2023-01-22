@@ -102,7 +102,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IScore"/> implementation with given player points values.
         /// </summary>
-        private class PointsScore : IScore
+        private sealed class PointsScore : IScore
         {
             private readonly IPlayerPoints playerOnePoints;
             private readonly IPlayerPoints playerTwoPoints;
@@ -121,7 +121,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IScore"/> implementation for advantage.
         /// </summary>
-        private class AdvantageScore : IScore
+        private sealed class AdvantageScore : IScore
         {
             private readonly IAdvantage advantage;
 
@@ -138,7 +138,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IScore"/> implementation for deuce.
         /// </summary>
-        private class DeuceScore : IScore
+        private sealed class DeuceScore : IScore
         {
             public IUnion4<Points, IAdvantage, Deuce, IGame> Score =>
                 GenericUnions.QuartetFactory<Points, IAdvantage, Deuce, IGame>()
@@ -148,7 +148,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IScore"/> implementation for game.
         /// </summary>
-        private class GameScore : IScore
+        private sealed class GameScore : IScore
         {
             private readonly IGame game;
 
@@ -246,7 +246,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IPlayerPoints"/> implementation with zero points.
         /// </summary>
-        private class ZeroPlayerPoints : IPlayerPoints
+        private sealed class ZeroPlayerPoints : IPlayerPoints
         {
             public IUnion4<Zero, Fifteen, Thirty, Forty> PlayerPoints =>
                 GenericUnions.QuartetFactory<Zero, Fifteen, Thirty, Forty>()
@@ -256,7 +256,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IPlayerPoints"/> implementation with fifteen points.
         /// </summary>
-        private class FifteenPlayerPoints : IPlayerPoints
+        private sealed class FifteenPlayerPoints : IPlayerPoints
         {
             public IUnion4<Zero, Fifteen, Thirty, Forty> PlayerPoints =>
                 GenericUnions.QuartetFactory<Zero, Fifteen, Thirty, Forty>()
@@ -266,7 +266,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IPlayerPoints"/> implementation with thirty points.
         /// </summary>
-        private class ThirtyPlayerPoints : IPlayerPoints
+        private sealed class ThirtyPlayerPoints : IPlayerPoints
         {
             public IUnion4<Zero, Fifteen, Thirty, Forty> PlayerPoints =>
                 GenericUnions.QuartetFactory<Zero, Fifteen, Thirty, Forty>()
@@ -276,7 +276,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IPlayerPoints"/> implementation with forty points.
         /// </summary>
-        private class FortyPlayerPoints : IPlayerPoints
+        private sealed class FortyPlayerPoints : IPlayerPoints
         {
             public IUnion4<Zero, Fifteen, Thirty, Forty> PlayerPoints =>
                 GenericUnions.QuartetFactory<Zero, Fifteen, Thirty, Forty>()
@@ -318,7 +318,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IAdvantage"/> implementation for player one.
         /// </summary>
-        private class OnePlayer : IAdvantage
+        private sealed class OnePlayer : IAdvantage
         {
             public IUnion2<PlayerOne, PlayerTwo> Player =>
                 GenericUnions.DoubletFactory<PlayerOne, PlayerTwo>()
@@ -338,7 +338,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IAdvantage"/> implementation for player two.
         /// </summary>
-        private class TwoPlayer : IAdvantage
+        private sealed class TwoPlayer : IAdvantage
         {
             public IUnion2<PlayerOne, PlayerTwo> Player =>
                 GenericUnions.DoubletFactory<PlayerOne, PlayerTwo>()
@@ -388,7 +388,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IGame"/> implementation for player one.
         /// </summary>
-        private class OnePlayer : IGame
+        private sealed class OnePlayer : IGame
         {
             public IUnion2<PlayerOne, PlayerTwo> Player =>
                 GenericUnions.DoubletFactory<PlayerOne, PlayerTwo>()
@@ -408,7 +408,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IGame"/> implementation for player two.
         /// </summary>
-        private class TwoPlayer : IGame
+        private sealed class TwoPlayer : IGame
         {
             public IUnion2<PlayerOne, PlayerTwo> Player =>
                 GenericUnions.DoubletFactory<PlayerOne, PlayerTwo>()
@@ -479,7 +479,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IPlayer"/> implementation for player one.
         /// </summary>
-        private class OnePlayer : IPlayer
+        private sealed class OnePlayer : IPlayer
         {
             public IUnion2<PlayerOne, PlayerTwo> Player =>
                 GenericUnions.DoubletFactory<PlayerOne, PlayerTwo>()
@@ -489,7 +489,7 @@ public class TennisGame
         /// <summary>
         /// <see cref="IPlayer"/> implementation for player two.
         /// </summary>
-        private class TwoPlayer : IPlayer
+        private sealed class TwoPlayer : IPlayer
         {
             public IUnion2<PlayerOne, PlayerTwo> Player =>
                 GenericUnions.DoubletFactory<PlayerOne, PlayerTwo>()
