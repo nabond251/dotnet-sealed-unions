@@ -15,6 +15,7 @@
     <Copyright>Copyright (c) Soli Deo Gloria Apps. All rights reserved.</Copyright>
     <PackageIcon>logo.png</PackageIcon>
     <Description>.NET port of Francisco (Paco) Estévez's JavaSealedUnions (https://github.com/pakoito/JavaSealedUnions).</Description>
+    <PackageReleaseNotes>v1.0.0 Initial release</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
