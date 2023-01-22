@@ -72,8 +72,7 @@
 ## About The Project
 
 This is a .NET port of
-[Francisco](https://github.com/pakoito/) ([Paco](https://github.com/pakoito/)) [Estévez
-](https://github.com/pakoito/)'s
+[Francisco](https://github.com/pakoito/) ([Paco](https://github.com/pakoito/)) [Estévez](https://github.com/pakoito/)'s
 [JavaSealedUnions](https://github.com/pakoito/JavaSealedUnions/blob/master/README.md).
 
 > In [computer science](https://en.wikipedia.org/wiki/Computer_science), a
