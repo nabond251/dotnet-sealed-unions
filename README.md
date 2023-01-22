@@ -56,19 +56,7 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
+    <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
@@ -96,7 +84,7 @@ This is a .NET port of
   a data structure used to hold a value that could take on several different,
   but fixed, types.
 
-  -- Wikipedia, [Tagged Union](https://en.wikipedia.org/wiki/Tagged_union)
+&mdash; Wikipedia, [Tagged Union](https://en.wikipedia.org/wiki/Tagged_union)
 
 And apparently now "sealed union" works, too.  This structure is the
 counterpart to the tuple.  A tuple allows you to form expressions which model
