@@ -60,7 +60,11 @@ internal sealed class Union5Third<TA, TB, TC, TD, TE>
     /// <inheritdoc/>
     public override int GetHashCode()
     {
+#if NETSTANDARD2_0
+        return -1584136870 + EqualityComparer<TC>.Default.GetHashCode(this.value);
+#else
         return HashCode.Combine(this.value);
+#endif
     }
 
     /// <inheritdoc/>

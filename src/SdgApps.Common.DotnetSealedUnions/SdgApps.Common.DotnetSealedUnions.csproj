@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
+    <LangVersion>10.0</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
@@ -15,7 +16,9 @@
     <Copyright>Copyright (c) Soli Deo Gloria Apps. All rights reserved.</Copyright>
     <PackageIcon>logo.png</PackageIcon>
     <Description>.NET port of Francisco (Paco) Estévez's JavaSealedUnions (https://github.com/pakoito/JavaSealedUnions).</Description>
-    <PackageReleaseNotes>v1.0.0 Initial release</PackageReleaseNotes>
+    <VersionPrefix>1.0.1</VersionPrefix>
+    <PackageReleaseNotes>v1.0.1 Multi-targeting
+v1.0.0 Initial release</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

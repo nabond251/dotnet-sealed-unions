@@ -48,7 +48,11 @@ internal sealed class Union0First<TA>
     /// <inheritdoc/>
     public override int GetHashCode()
     {
+#if NETSTANDARD2_0
+        return -1584136870 + EqualityComparer<TA>.Default.GetHashCode(this.value);
+#else
         return HashCode.Combine(this.value);
+#endif
     }
 
     /// <inheritdoc/>
