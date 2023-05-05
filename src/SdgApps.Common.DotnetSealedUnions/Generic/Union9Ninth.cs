@@ -72,7 +72,11 @@ internal sealed class Union9Ninth<TA, TB, TC, TD, TE, TF, TG, TH, TI>
     /// <inheritdoc/>
     public override int GetHashCode()
     {
+#if NETSTANDARD2_0
+        return -1584136870 + EqualityComparer<TI>.Default.GetHashCode(this.value);
+#else
         return HashCode.Combine(this.value);
+#endif
     }
 
     /// <inheritdoc/>
